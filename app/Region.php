@@ -10,30 +10,30 @@ namespace App;
 use Illuminate\Database\Eloquent\Model as Eloquent;
 
 /**
- * Class Type
+ * Class Region
  * 
  * @property int $id
  * @property string $uuid
- * @property string $name
+ * @property string $nom
  * @property string $deleted_at
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
  * 
- * @property \Illuminate\Database\Eloquent\Collection $reglements
+ * @property \Illuminate\Database\Eloquent\Collection $departements
  *
  * @package App
  */
-class Type extends Eloquent
+class Region extends Eloquent
 {
 	use \Illuminate\Database\Eloquent\SoftDeletes;
 
 	protected $fillable = [
 		'uuid',
-		'name'
+		'nom'
 	];
 
-	public function reglements()
+	public function departements()
 	{
-		return $this->hasMany(\App\Reglement::class, 'types_id');
+		return $this->hasMany(\App\Departement::class, 'regions_id');
 	}
 }

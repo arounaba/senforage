@@ -1,10 +1,39 @@
 <?php
 
+/**
+ * Created by Reliese Model.
+ * Date: Mon, 27 May 2019 20:24:09 +0000.
+ */
+
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Model as Eloquent;
 
-class Role extends Model
+/**
+ * Class Role
+ * 
+ * @property int $id
+ * @property string $uuid
+ * @property string $name
+ * @property string $deleted_at
+ * @property \Carbon\Carbon $created_at
+ * @property \Carbon\Carbon $updated_at
+ * 
+ * @property \Illuminate\Database\Eloquent\Collection $users
+ *
+ * @package App
+ */
+class Role extends Eloquent
 {
-    //
+	use \Illuminate\Database\Eloquent\SoftDeletes;
+
+	protected $fillable = [
+		'uuid',
+		'name'
+	];
+
+	public function users()
+	{
+		return $this->hasMany(\App\User::class, 'roles_id');
+	}
 }
