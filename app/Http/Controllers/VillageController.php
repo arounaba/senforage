@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Village;
 use Illuminate\Http\Request;
+use App\Helpers\PCollection;
 
 class VillageController extends Controller
 {
@@ -14,7 +15,8 @@ class VillageController extends Controller
      */
     public function index()
     {
-        //
+        $villages=Village::all()->load(['chef.user','commune.arrondissement.departement.region'])->paginate(10);
+        return view('villages.index',compact('villages'));
     }
 
     /**

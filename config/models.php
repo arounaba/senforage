@@ -44,7 +44,7 @@ return [
         |--------------------------------------------------------------------------
         | Parent Class
         |--------------------------------------------------------------------------
-   
+        |
         | All Eloquent models should inherit from Eloquent Model class. However,
         | you can define a custom Eloquent model that suits your needs.
         | As an example one custom model has been added for you which
@@ -263,7 +263,7 @@ return [
 
         'except' => [
             'migrations',
-		'password_resets'
+            'password_resets',
         ],
     ],
 

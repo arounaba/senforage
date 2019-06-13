@@ -16,7 +16,10 @@ Route::get('/', function () {
 });
 
 Route::get('/test', function () {
-return view('layout.default');
+    return view('layout.form');
+});
+Route::get('/test1', function () {
+    return "HELLO";
 });
 Auth::routes();
 
