@@ -12,5 +12,6 @@ class ComptablesTableSeeder extends Seeder
     public function run()
     {
         //
+        factory(App\Comptable::class,10)->create();
     }
 }
