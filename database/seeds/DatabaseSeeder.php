@@ -18,7 +18,7 @@ class DatabaseSeeder extends Seeder
         $this->call(VillagesTableSeeder::class);
         $this->call(ComptablesTableSeeder::class);
         $this->call(TypesTableSeeder::class);
-        $this->call(ReglementsTableSeeder::class);
         $this->call(ClientsTableSeeder::class);
+
     }
 }

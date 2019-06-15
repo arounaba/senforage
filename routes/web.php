@@ -25,3 +25,5 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('villages', 'VillageController');
+Route::get('/clients/list', 'ClientController@list')->name('clients.list');
+Route::resource('clients', 'ClientController');
