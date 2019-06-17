@@ -1,7 +1,6 @@
 @extends('layout.default')
 @section('content')
-    
-
+  
 <div class="content">
         <div class="container-fluid">
           <div class="row">
@@ -10,7 +9,7 @@
                 <div class="card-header card-header-primary">
                   <h4 class="card-title ">SENFORAGE</h4>
                   <p class="card-category"> Clients
-                      <a href="{{route('clients.create')}}"><div class="btn btn-warning">Nouveau Client <i class="material-icons">add</i></div></a> 
+                      <a href="{{route('clients.selectvillage')}}"><div class="btn btn-warning">Nouveau Client <i class="material-icons">add</i></div></a> 
                   </p>
                 </div>
                 <div class="card-body">
@@ -59,7 +58,7 @@
             "serverSide": true,
             "ajax": "{{route('clients.list')}}",
             columns: [
-                    { data: 'id', name: 'id' },
+                    { data:  'id', name: 'id' },
                     { data: 'user.name', name: 'user.name' },
                     { data: 'user.firstname', name: 'user.firstname' },
                     { data: 'user.email', name: 'user.email' },

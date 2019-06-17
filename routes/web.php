@@ -23,7 +23,14 @@ Route::get('/test1', function () {
 });
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
-Route::resource('villages', 'VillageController');
-Route::get('/clients/list', 'ClientController@list')->name('clients.list');
-Route::resource('clients', 'ClientController');
+Route::get('/clients/selectvillage', function () {
+    return view('clients.selectvillage');
+ })->name('clients.selectvillage');
+ 
+ Route::get('/home', 'HomeController@index')->name('home');
+ Route::get('/clients/list', 'ClientController@list')->name('clients.list');
+ Route::get('/villages/list', 'VillageController@list')->name('villages.list');
+ Route::resource('villages', 'VillageController');
+ Route::resource('clients', 'ClientController');
+ Route::get('/clients/list', 'AbonnementController@list')->name('clients.list');
+ Route::resource('abonnements', 'AbonnementController');

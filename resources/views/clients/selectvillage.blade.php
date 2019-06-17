@@ -9,28 +9,28 @@
               <div class="card">
                 <div class="card-header card-header-primary">
                   <h4 class="card-title ">SENFORAGE</h4>
-                  <p class="card-category"> Abonnements
-                      <a href="{{route('abonnements.create')}}"><div class="btn btn-warning">Nouveau Abonnement <i class="material-icons">add</i></div></a> 
+                  <p class="card-category"> Selection du village pour le client
+                      {{-- <a href="{{route('clients.create')}}"><div class="btn btn-warning">Nouveau Client <i class="material-icons">add</i></div></a>  --}}
                   </p>
                 </div>
                 <div class="card-body">
                   <div class="table-responsive">
-                    <table class="table" id="table-abonnements">
+                    <table class="table" id="table-villages">
                       <thead class=" text-primary">
                         <th>
                           ID
                         </th>
                         <th>
-                          Nom
+                          Village
                         </th>
                         <th>
-                            Prenom
+                            Commune
                         </th>
                         <th>
-                          Email
+                          Region
                         </th>
                         <th>
-                          Action
+                          Selectionner
                           </th>
                       </thead>
                       <tbody>
@@ -54,15 +54,15 @@
       @push('scripts')
       <script type="text/javascript">
       $(document).ready(function () {
-          $('#table-abonnements').DataTable( { 
+          $('#table-villages').DataTable( { 
             "processing": true,
             "serverSide": true,
-            "ajax": "{{route('abonnements.list')}}",
+            "ajax": "{{route('villages.list')}}",
             columns: [
                     { data: 'id', name: 'id' },
-                    { data: 'user.name', name: 'user.name' },
-                    { data: 'user.firstname', name: 'user.firstname' },
-                    { data: 'user.email', name: 'user.email' },
+                    { data: 'nom', name: 'nom' },
+                    { data: 'commune.nom', name: 'commune.nom' },
+                    { data: 'commune.arrondissement.departement.region.nom', name: 'commune.arrondissement.departement.region.nom' },
                     { data: null ,orderable: false, searchable: false}
 
                 ],
@@ -70,21 +70,12 @@
                         {
                         "data": null,
                         "render": function (data, type, row) {
-                        url_e =  "{!! route('abonnements.edit',':id')!!}".replace(':id', data.id);
-                        url_d =  "{!! route('abonnements.destroy',':id')!!}".replace(':id', data.id);
-                        return '<a href='+url_e+'  class=" btn btn-primary " ><i class="material-icons">edit</i></a>'+
-                        '<a class="btn btn-danger" href='+url_d+'><i class="material-icons">delete</i></a>';
+                        url_e =  "{!! route('clients.create','village=:id')!!}".replace(':id', data.id);
+                        return '<a href='+url_e+'  class=" btn btn-primary " ><i class="material-icons">edit</i></a>';
                         },
                         "targets": 4
                         },
-                    // {
-                    //     "data": null,
-                    //     "render": function (data, type, row) {
-                    //         url =  "{!! route('clients.edit',':id')!!}".replace(':id', data.id);
-                    //         return check_status(data,url);
-                    //     },
-                    //     "targets": 1
-                    // }
+
                 ],
               
           });
