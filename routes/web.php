@@ -32,5 +32,5 @@ Route::get('/clients/selectvillage', function () {
  Route::get('/villages/list', 'VillageController@list')->name('villages.list');
  Route::resource('villages', 'VillageController');
  Route::resource('clients', 'ClientController');
- Route::get('/clients/list', 'AbonnementController@list')->name('clients.list');
+ Route::get('/clients/list', 'ClientController@list')->name('clients.list');
  Route::resource('abonnements', 'AbonnementController');
