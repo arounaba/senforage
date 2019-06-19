@@ -49,7 +49,7 @@
       </a>
     </li>
     <li class="nav-item ">
-      <a class="nav-link" href="./map.html">
+      <a class="nav-link" href="{{route('compteurs.index')}}">
         <i class="material-icons">location_ons</i>
         <p>Compteurs</p>
       </a>
@@ -66,12 +66,12 @@
         <p>RTL Support</p>
       </a>
     </li>
-    <li class="nav-item active-pro ">
+  <!--   <li class="nav-item active-pro ">
       <a class="nav-link" href="./upgrade.html">
         <i class="material-icons">unarchive</i>
         <p>Upgrade to PRO</p>
       </a>
-    </li>
+    </li> -->
   </ul>
 </div>
 {{-- <div class="sidebar-wrapper">
