@@ -1,12 +1,16 @@
 <?php
-
 namespace App\Http\Controllers;
-
 use App\Abonnement;
 use Illuminate\Http\Request;
 use Yajra\Datatables\Datatables;
+
 class AbonnementController extends Controller
 {
+    public function list(Request $request)
+    {
+        $abonnements=Abonnement::get()->load('client');
+        return Datatables::of($abonnements)->make(true);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -14,22 +18,25 @@ class AbonnementController extends Controller
      */
     public function index()
     {
+        //
         return view('abonnements.index');
     }
-    public function list(Request $request)
-    {
-        $abonnements=Abonnement::get();
-        return Datatables::of($abonnements)->make(true);
-    }   
 
     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
         //
+        // $this->validate(
+        //     $request, [
+        //         'village' => 'required|exists:villages,id',
+        //     ]);
+        $village_id=$request->input('village');
+        $village=\App\Village::find($village_id);
+        return view('abonnements.create',compact('abonnement'));
     }
 
     /**
@@ -41,15 +48,26 @@ class AbonnementController extends Controller
     public function store(Request $request)
     {
         //
+        $this->validate(
+            $request, [
+                'nom' => 'required|string|max:50',
+                'prenom' => 'required|string|max:50',
+                'email' => 'required|email|max:255|unique:users,email',
+                'password' => 'required|string|max:50',
+                'village' => 'required|exists:villages,id',
+            ]
+        );
+        return view('abonnements.index');
+        
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Abonnement $abonnement
+     * @param  \App\Abonnement  $abonnement
      * @return \Illuminate\Http\Response
      */
-    public function show(Abonnement $abonnement)
+    public function show(Abonnement  $abonnement)
     {
         //
     }
@@ -60,7 +78,7 @@ class AbonnementController extends Controller
      * @param  \App\Abonnement  $abonnement
      * @return \Illuminate\Http\Response
      */
-    public function edit(Abonnement $abonnement)
+    public function edit(Abonnement  $abonnement)
     {
         //
     }
@@ -72,7 +90,7 @@ class AbonnementController extends Controller
      * @param  \App\Abonnement  $abonnement
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Abonnement $abonnement)
+    public function update(Request $request,Abonnement  $abonnement)
     {
         //
     }
@@ -83,7 +101,7 @@ class AbonnementController extends Controller
      * @param  \App\Abonnement  $abonnement
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Abonnement $abonnement)
+    public function destroy(Abonnement  $abonnement)
     {
         //
     }

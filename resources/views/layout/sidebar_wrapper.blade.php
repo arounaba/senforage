@@ -25,20 +25,20 @@
       </a>
     </li>
     <li class="nav-item ">
-      <a class="nav-link" href="./user.html">
+      <a class="nav-link" href="{{route('comptables.index')}}">
         <i class="material-icons">person</i>
         <p>Comptables</p>
       </a>
     </li>
     <li class="nav-item ">
-      <a class="nav-link" href="./tables.html">
-        <i class="material-icons">content_paste</i>
+      <a class="nav-link" href="{{route('agents.index')}}">
+        <i class="material-icons">person</i>
         <p>Agents</p>
       </a>
     </li>
     <li class="nav-item ">
-      <a class="nav-link" href="./typography.html">
-        <i class="material-icons">library_books</i>
+      <a class="nav-link" href="{{route('gestionnaires.index')}}">
+        <i class="material-icons">person</i>
         <p>Gestionnaires</p>
       </a>
     </li>

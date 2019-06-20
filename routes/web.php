@@ -36,3 +36,9 @@ Route::get('/clients/selectvillage', function () {
  Route::resource('abonnements', 'AbonnementController');
  Route::get('/compteurs/list', 'CompteurController@list')->name('compteurs.list');
  Route::resource('compteurs', 'CompteurController');
+ Route::get('/gestionnaires/list', 'GestionnaireController@list')->name('gestionnaires.list');
+ Route::resource('gestionnaires', 'GestionnaireController');
+ Route::get('/agents/list', 'AgentController@list')->name('agents.list');
+ Route::resource('agents', 'AgentController');
+ Route::get('/comptables/list', 'ComptableController@list')->name('comptables.list');
+ Route::resource('comptables', 'ComptableController');

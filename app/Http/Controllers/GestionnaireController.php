@@ -1,15 +1,15 @@
 <?php
 namespace App\Http\Controllers;
-use App\Client;
+use App\Gestionnaire;
 use Illuminate\Http\Request;
 use Yajra\Datatables\Datatables;
 
-class ClientController extends Controller
+class GestionnaireController extends Controller
 {
     public function list(Request $request)
     {
-        $clients=Client::with('user')->get();
-        return Datatables::of($clients)->make(true);
+        $gestionnaires=Gestionnaire::get()->load('user');
+        return Datatables::of($gestionnaires)->make(true);
     }
     /**
      * Display a listing of the resource.
@@ -19,7 +19,7 @@ class ClientController extends Controller
     public function index()
     {
         //
-        return view('clients.index');
+        return view('gestionnaires.index');
     }
 
     /**
@@ -36,8 +36,9 @@ class ClientController extends Controller
         //     ]);
         $village_id=$request->input('village');
         $village=\App\Village::find($village_id);
-        return view('clients.create',compact('village'));
+        return view('gestionnaires.create',compact('gestionnaire'));
     }
+
     /**
      * Store a newly created resource in storage.
      *
@@ -56,17 +57,17 @@ class ClientController extends Controller
                 'village' => 'required|exists:villages,id',
             ]
         );
-        return view('clients.index');
+        return view('gestionnaires.index');
         
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Client  $client
+     * @param  \App\Gestionnaire  $gestionnaire
      * @return \Illuminate\Http\Response
      */
-    public function show(Client $client)
+    public function show(Gestionnaire $gestionnaire)
     {
         //
     }
@@ -74,10 +75,10 @@ class ClientController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Client  $client
+     * @param  \App\Gestionnaire $gestionnaire
      * @return \Illuminate\Http\Response
      */
-    public function edit(Client $client)
+    public function edit(Gestionnaire $gestionnaire)
     {
         //
     }
@@ -86,10 +87,10 @@ class ClientController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Client  $client
+     * @param  \App\Gestionnaire  $gestionnaire
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Client $client)
+    public function update(Request $request,Gestionnaire $gestionnaire)
     {
         //
     }
@@ -97,10 +98,10 @@ class ClientController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Client  $client
+     * @param  \App\Gestionnaire $gestionnaire
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Client $client)
+    public function destroy(Gestionnaire $gestionnaire)
     {
         //
     }
