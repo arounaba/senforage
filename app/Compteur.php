@@ -47,7 +47,7 @@ class Compteur extends Eloquent
 
 	public function abonnements()
 	{
-		return $this->hasMany(\App\Abonnement::class, 'compteurs_id');
+		return $this->hasOne(\App\Abonnement::class, 'compteurs_id');
 	}
 
 	public function consommations()

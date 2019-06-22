@@ -5,25 +5,40 @@
         <div class="card">
             <div class="card-header card-header-primary">
                 <h3 class="card-title">Enregistrement</h3>
-                <p class="card-category">Reglements
+                <p class="card-category">Administrateurs
                     {{-- <a target="_blank" href="#">Robert McIntosh</a>. Please checkout the --}}
                     {{-- <a href="#" target="_blank">full documentation.</a> --}}
                 </p>
             </div>
             <div class="card-body">
                 <div class="row pt-5 pl-5">
-                    <!-- <h4>
+                    <h4>
                         Village: {{$village->nom ?? 'Aucun village choisi'}}<br/>
                         Commune: {{$village->commune->nom ?? ''}}
-                    </h4> -->
+                    </h4>
                 </div>
                 <div class="row pt-5"></div>
                 
-                <form method="POST" action="{{route('reglements.store')}}">
+                <form method="POST" action="{{route('administrateurs.store')}}">
                     {{ csrf_field() }}
                     
                     <input type="hidden" name="village" value="{{$village->id??''}}" class="form-control" name="inputName" id="inputName" placeholder="">
                     
+                    <div class="form-group">
+                        <label for="input-matricule">Matricule</label>
+                        <input type="text" name="matricule" class="form-control" id="input-matricule" aria-describedby="emailHelp" placeholder="entrez matricule">
+                        <small id="input-matricule-help" class="form-text text-muted">
+                            @if ($errors->has('matricule'))
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->get('matricule') as $message)
+                                    <li>{{ $message }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                            @endif
+                        </small>
+                    </div>
                     <div class="form-group">
                         <label for="input-nom">Nom</label>
                         <input type="text" name="nom" class="form-control" id="input-nom" aria-describedby="emailHelp" placeholder="Nom du client">
@@ -40,8 +55,30 @@
                         </small>
                     </div>
                     <div class="form-group">
-                        <label for="exampleInputEmail1">Email address</label>
-                        <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                        <label for="exampleInputprenom">Prenom</label>
+                        <input type="text" name="prenom" class="form-control" id="exampleInputprenom" aria-describedby="emailHelp" placeholder="Prenomdu client">
+                        <small id="input-prenom-help" class="form-text text-muted">
+                            @if ($errors->has('prenom'))
+                            @foreach ($errors->get('prenom') as $message)
+                            <p class="text-danger">{{ $message }}</p>
+                            @endforeach
+                            @endif
+                        </small>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputtelephone">Telephone </label>
+                        <input type="telephone" name="telephone" class="form-control" id="exampleInputtelephone" aria-describedby="emailHelp" placeholder="Enter telephone">
+                        <small id="input-telephone-help" class="form-text text-muted">
+                            @if ($errors->has('email'))
+                            @foreach ($errors->get('email') as $message)
+                            <p class="text-danger">{{ $message }}</p>
+                            @endforeach
+                            @endif
+                        </small>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputemail">Email address</label>
+                        <input type="email" name="email" class="form-control" id="exampleInputemail" aria-describedby="emailHelp" placeholder="Enter email">
                         <small id="emailHelp" class="form-text text-muted">
                             @if ($errors->has('email'))
                             @foreach ($errors->get('email') as $message)

@@ -17,7 +17,7 @@
                     <table class="table" id="table-agents">
                       <thead class=" text-primary">
                         <th>
-                          ID
+                          Matricule
                         </th>
                         <th>
                           Nom
@@ -58,7 +58,7 @@
             "serverSide": true,
             "ajax": "{{route('agents.list')}}",
             columns: [
-                    { data:  'id', name: 'id' },
+                    { data:  'matricule', name: 'matricule' },
                     { data: 'user.name', name: 'user.name' },
                     { data: 'user.firstname', name: 'user.firstname' },
                     { data: 'user.email', name: 'user.email' },

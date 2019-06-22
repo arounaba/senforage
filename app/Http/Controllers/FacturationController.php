@@ -1,15 +1,15 @@
 <?php
 namespace App\Http\Controllers;
-use App\Client;
+use App\Facturation;
 use Illuminate\Http\Request;
 use Yajra\Datatables\Datatables;
 
-class ClientController extends Controller
+class FacturationController extends Controller
 {
     public function list(Request $request)
     {
-        $clients=Client::with('user')->get();
-        return Datatables::of($clients)->make(true);
+        $facturations=Facturation::get()->load('user');
+        return Datatables::of($facturations)->make(true);
     }
     /**
      * Display a listing of the resource.
@@ -19,9 +19,8 @@ class ClientController extends Controller
     public function index()
     {
         //
-        return view('clients.index');
+        return view('facturations.index');
     }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -36,7 +35,7 @@ class ClientController extends Controller
         //     ]);
         $village_id=$request->input('village');
         $village=\App\Village::find($village_id);
-        return view('clients.create',compact('village'));
+        return view('facturations.create',compact('village'));
     }
     /**
      * Store a newly created resource in storage.
@@ -56,17 +55,17 @@ class ClientController extends Controller
                 'village' => 'required|exists:villages,id',
             ]
         );
-        return view('clients.index');
+        return view('facturations.index');
         
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Client  $client
+     * @param  \App\Agent  $agent
      * @return \Illuminate\Http\Response
      */
-    public function show(Client $client)
+    public function show(Facturation $facturation)
     {
         //
     }
@@ -74,10 +73,10 @@ class ClientController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Client  $client
+     * @param  \App\Agent  $agent
      * @return \Illuminate\Http\Response
      */
-    public function edit(Client $client)
+    public function edit(Facturation $facturation)
     {
         //
     }
@@ -86,10 +85,10 @@ class ClientController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Client  $client
+     * @param  \App\Facturation $facturation
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Client $client)
+    public function update(Request $request, Facturation $facturation)
     {
         //
     }
@@ -97,11 +96,11 @@ class ClientController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Client  $client
+     * @param  \App\Facturation $facturation
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Client $client)
+    public function destroy(Facturation $facturation)
     {
-        
+        //
     }
 }

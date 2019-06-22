@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Compteur;
+use App\Administrateur;
 use Illuminate\Http\Request;
 use Yajra\Datatables\Datatables;
-class CompteurController extends Controller
+class AdministrateurController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,17 +14,14 @@ class CompteurController extends Controller
      */
     public function index()
     {
-        return view('compteurs.index');
+        return view('administrateurs.index');
     }
     public function list(Request $request)
     {
-        $compteurs=Compteur::get();
-        return Datatables::of($compteurs)->make(true);
+        $administrateurs=Administrateur::get()->load('user');
+        return Datatables::of($administrateurs)->make(true);
     }   
-    public function listfree(){
-        $compteurs=Compteur::doesntHave('abonnement')->get();
-        return DataTables::of($compteurs)->make(true);
-    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -49,10 +46,10 @@ class CompteurController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Compteur  $compteur
+     * @param  \App\Administrateur  $administrateur
      * @return \Illuminate\Http\Response
      */
-    public function show(Compteur $compteur)
+    public function show(Administrateur  $administrateur)
     {
         //
     }
@@ -60,10 +57,10 @@ class CompteurController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Compteur  $compteur
+     * @param  \App\Administrateur  $administrateur
      * @return \Illuminate\Http\Response
      */
-    public function edit(Compteur $compteur)
+    public function edit(Administrateur  $administrateur)
     {
         //
     }
@@ -72,10 +69,10 @@ class CompteurController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Compteur  $compteur
+     * @param  \App\Administrateur  $administrateur
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Compteur $compteur)
+    public function update(Request $request, Administrateur  $administrateur)
     {
         //
     }
@@ -83,10 +80,10 @@ class CompteurController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Compteur  $compteur
+     * @param  \App\Administrateur  $administrateur
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Compteur $compteur)
+    public function destroy(Administrateur  $administrateur)
     {
         //
     }

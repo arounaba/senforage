@@ -5,7 +5,7 @@
         <div class="card">
             <div class="card-header card-header-primary">
                 <h3 class="card-title">Enregistrement</h3>
-                <p class="card-category">Agents
+                <p class="card-category">Facturations
                     {{-- <a target="_blank" href="#">Robert McIntosh</a>. Please checkout the --}}
                     {{-- <a href="#" target="_blank">full documentation.</a> --}}
                 </p>
@@ -19,7 +19,7 @@
                 </div>
                 <div class="row pt-5"></div>
                 
-                <form method="POST" action="{{route('agents.store')}}">
+                <form method="POST" action="{{route('facturations.store')}}">
                     {{ csrf_field() }}
                     
                     <input type="hidden" name="village" value="{{$village->id??''}}" class="form-control" name="inputName" id="inputName" placeholder="">
