@@ -62,14 +62,14 @@
     </li>
     <li class="nav-item ">
     <a class="nav-link" href="{{route('consommations.index')}}">
-        <i class="material-icons">notifications</i>
+        <i class="material-icons">person</i>
         <p>Consommations</p> 
       </a>
     </li>
    <li class="nav-item active-pro ">
-      <a class="nav-link" href="{{route('facturations.index')}}">
+      <a class="nav-link" href="{{route('factures.index')}}">
         <i class="material-icons">unarchive</i>
-        <p>Facturations</p>
+        <p>Factures</p>
       </a>
     </li> -->
   </ul>

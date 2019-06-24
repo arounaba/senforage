@@ -101,6 +101,8 @@ class AgentController extends Controller
      */
     public function destroy(Agent $agent)
     {
-        //
+        $agent->delete();
+        $message= $agent->user->firstname.''.$agent->user->name.'réussie';
+        return redirect()->route('agents.index')->with(compact('message'));
     }
 }

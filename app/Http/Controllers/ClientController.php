@@ -63,7 +63,7 @@ class ClientController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Client  $client
+     * @param  \App\Client $client
      * @return \Illuminate\Http\Response
      */
     public function show(Client $client)
@@ -102,6 +102,8 @@ class ClientController extends Controller
      */
     public function destroy(Client $client)
     {
-        
+        $client->delete();
+        $message= $client->user->firstname.''.$client->user->name.'réussie';
+        return redirect()->route('clients.index')->with(compact('message'));
     }
 }

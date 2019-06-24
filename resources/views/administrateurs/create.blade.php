@@ -21,7 +21,6 @@
                 
                 <form method="POST" action="{{route('administrateurs.store')}}">
                     {{ csrf_field() }}
-                    
                     <input type="hidden" name="village" value="{{$village->id??''}}" class="form-control" name="inputName" id="inputName" placeholder="">
                     
                     <div class="form-group">

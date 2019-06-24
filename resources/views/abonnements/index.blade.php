@@ -1,11 +1,15 @@
 @extends('layout.default')
 @section('content')
     
-
 <div class="content">
         <div class="container-fluid">
           <div class="row">
             <div class="col-md-12">
+                  @if (session('message'))
+                   <div class="alert alert-success">
+                       {{ session('message') }}
+                   </div>
+                    @endif
               <div class="card">
                 <div class="card-header card-header-primary">
                   <h4 class="card-title ">SENFORAGE</h4>
@@ -30,7 +34,7 @@
                           Nom Client
                         </th>
                         <th>
-                            Compteur
+                            abonnement
                           </th>
                         <th>
                           Action
@@ -52,34 +56,45 @@
           </div>
         </div>
       </div>
-
-      <div class="modal fade" id="error-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Enregitrement</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                @if(Session::has('message'))
-                                {{ Session::get('message') }}
-                                    
-                              
-                              
-                                @push('scripts')
-                                <script type="text/javascript">
-                                $(document).ready(function () {
-                                    $("#error-modal").modal({
-                                        'show':true,
+      
+         <div class="modal fade" id="modal_delete_abonnement" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+        <form method="POST" id="form-delete-abonnement">
+        {{ csrf_field() }}
+         @method('DELETE')
+         <div class="modal-dialog" role="document">
+          <div class="modal-content">
+        <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Etes-vous sûr de vouloir supprimé</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        </div>
+      <div class="modal-body">
+        cliquez sur fermer pour annuler
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+        <button type="submit" class="btn btn-primary">Valider</button>
+         </div>
+           @if(Session::has('message'))
+           {{ Session::get('message') }}
+           </div>
+         </div>
+        </div>
+         </div>
+          @endsection                        
+             
+                 @push('scripts')
+                 <script type="text/javascript">
+                   $(document).ready(function () {
+                    $("#error-modal").modal({
+                    'show':true,
                                     })
                                 });
-                                </script>
-                                    
+                                </script>  
                                 @endpush
                                 @endif
-                        
+                  
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
                             </div>
@@ -88,7 +103,6 @@
                 </div>
             </div>
       @endsection
-
       @push('scripts')
       <script type="text/javascript">
       $(document).ready(function () {
@@ -101,9 +115,8 @@
                     { data: 'created_at', name: 'created_at' },
                     { data: 'client.user.name', name: 'client.user.name' },
                     { data: 'client.user.firstname', name: 'client.user.firstname' },
-                    { data: 'compteur.numero_serie', name: 'compteur.numero_serie' },
+                    { data: 'abonnement.numero_serie', name: 'abonnement.numero_serie' },
                     { data: null ,orderable: false, searchable: false}
-
                 ],
                 "columnDefs": [
                         {
@@ -124,6 +137,12 @@
                     // }
                 ],
               
+          });
+          $("#table-abonnements").off('click', '.btn_delete_abonnement').on('click', '.btn_delete_abonnement', 
+           function(){
+           var href=$(this).data('href')
+           $("#form-delete-abonnement").attr('action',href);
+          $("#modal_delete_abonnement").modal(); 
           });
       });
       </script>

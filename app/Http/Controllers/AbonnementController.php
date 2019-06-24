@@ -133,6 +133,8 @@ class AbonnementController extends Controller
      */
     public function destroy(Abonnement $abonnement)
     {
-        //
+        $abonnement->delete();
+        $message= $abonnement->user->firstname.''.$abonnement->user->name.'réussie';
+        return redirect()->route('abonnements.index')->with(compact('message'));
     }
 }

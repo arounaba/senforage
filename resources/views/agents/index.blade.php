@@ -5,7 +5,17 @@
         <div class="container-fluid">
           <div class="row">
             <div class="col-md-12">
+            @if (session('message'))
+                   <div class="alert alert-success">
+                       {{ session('message') }}
+                   </div>
+                    @endif
               <div class="card">
+              @if (session('message'))
+                   <div class="alert alert-success">
+                       {{ session('message') }}
+                   </div>
+                    @endif
                 <div class="card-header card-header-primary">
                   <h4 class="card-title ">SENFORAGE</h4>
                   <p class="card-category"> Agents
@@ -48,6 +58,28 @@
           </div>
         </div>
       </div>
+      <div class="modal fade" id="modal_delete_agent" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <form method="POST" id="form-delete-agent">
+     {{ csrf_field() }}
+     @method('DELETE')
+<div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Etes-vous sûr de vouloir supprimé</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        cliquez sur fermer pour annuler
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+        <button type="submit" class="btn btn-primary">Valider</button>
+      </div>
+    </div>
+  </div>
+</div>
       @endsection
 
       @push('scripts')
@@ -72,20 +104,26 @@
                         url_e =  "{!! route('agents.edit',':id')!!}".replace(':id', data.id);
                         url_d =  "{!! route('agents.destroy',':id')!!}".replace(':id', data.id);
                         return '<a href='+url_e+'  class=" btn btn-primary " ><i class="material-icons">edit</i></a>'+
-                        '<a class="btn btn-danger" href='+url_d+'><i class="material-icons">delete</i></a>';
+                        '<div class="btn btn-danger delete btn_delete_agent" data-href='+url_d+'><i class="material-icons">delete</i></div>';
                         },
                         "targets": 4
                         },
                     // {
                     //     "data": null,
                     //     "render": function (data, type, row) {
-                    //         url =  "{!! route('clients.edit',':id')!!}".replace(':id', data.id);
+                    //         url =  "{!! route('agents.edit',':id')!!}".replace(':id', data.id);
                     //         return check_status(data,url);
                     //     },
                     //     "targets": 1
                     // }
                 ],
-              
+          
+          });
+          $("#table-agents").off('click','.btn_delete_agent').on('click', '.btn_delete_agent', 
+          function(){
+            var href=$(this).data('href');
+            $("#form-delete-agent").attr('action',href);
+            $("#modal_delete_agent").modal(); 
           });
       });
       </script>

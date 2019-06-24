@@ -60,7 +60,7 @@ class AdministrateurController extends Controller
      * @param  \App\Administrateur  $administrateur
      * @return \Illuminate\Http\Response
      */
-    public function edit(Administrateur  $administrateur)
+    public function edit(Administrateur $administrateur)
     {
         //
     }
@@ -68,23 +68,24 @@ class AdministrateurController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Administrateur  $administrateur
+     * @param  \Illuminate\Http\Request $request
+     * @param  \App\Administrateur $administrateur
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Administrateur  $administrateur)
+    public function update(Request $request, Administrateur $administrateur)
     {
         //
     }
-
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Administrateur  $administrateur
+     * @param  \App\Administrateur $administrateur
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Administrateur  $administrateur)
+    public function destroy(Administrateur $administrateur)
     {
-        //
+        $administrateur->delete();
+        $message= $administrateur->user->firstname.''.$administrateur->user->name.'réussie';
+        return redirect()->route('administrateurs.index')->with(compact('message'));
     }
 }

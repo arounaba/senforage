@@ -46,6 +46,7 @@ class Facture extends Eloquent
 		'uuid',
 		'date_limite',
 		'details',
+		'client',
 		'montant',
 		'debut_consommation',
 		'fin_consommation'
@@ -59,5 +60,9 @@ class Facture extends Eloquent
 	public function reglements()
 	{
 		return $this->hasMany(\App\Reglement::class, 'factures_id');
+	}
+	public function client()
+	{
+		return $this->belongsTo(\App\Client::class, 'factures_id');
 	}
 }

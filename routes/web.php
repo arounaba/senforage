@@ -41,8 +41,8 @@ Route::get('/clients/selectvillage', function () {
  Route::resource('reglements', 'ReglementController');
  Route::get('/comptables/list', 'ComptableController@list')->name('comptables.list');
  Route::resource('comptables', 'ComptableController');
- Route::get('/facturations/list', 'FacturationController@list')->name('facturations.list');
- Route::resource('facturations', 'FacturationController');
+ Route::get('/factures/list', 'FactureController@list')->name('factures.list');
+ Route::resource('factures', 'FactureController');
  Route::get('/administrateurs/list', 'AdministrateurController@list')->name('administrateurs.list');
  Route::resource('administrateurs', 'AdministrateurController');
  Route::get('/abonnements/selectcompteur','AbonnementController@selectcompteur')->name('abonnements.selectcompteur');
@@ -53,6 +53,14 @@ Route::get('/clients/selectvillage', function () {
  Route::get('/consommations/list/{abonnement?}','ConsommationController@list')->name('consommations.list');
  Route::get('/consommations/list', 'ConsommationController@list')->name('consommations.list');
  Route::resource('consommations', 'ConsommationController');
- 
+ use Illuminate\Support\Facades\Date;
+
+Route::get('carbon', function () {
+   $date = Date::now();
+   dump($date);
+   $newDate = $date->copy()->addDays(7);
+   dump($newDate);
+});
+
 
 

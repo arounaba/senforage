@@ -45,7 +45,7 @@ class Compteur extends Eloquent
 		return $this->belongsTo(\App\Administrateur::class, 'administrateurs_id');
 	}
 
-	public function abonnements()
+	public function abonnement()
 	{
 		return $this->hasOne(\App\Abonnement::class, 'compteurs_id');
 	}

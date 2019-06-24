@@ -1,6 +1,7 @@
 <?php
 namespace App\Http\Controllers;
 use App\Consommation;
+use App\Abonnement;
 use Illuminate\Http\Request;
 use Yajra\Datatables\Datatables;
 
@@ -109,6 +110,8 @@ class ConsommationController extends Controller
      */
     public function destroy(Consommation $consommation)
     {
-        
+        $consommation->delete();
+        $message= $consommation->user->name.''.$consommation->user->firstname.'réussie';
+        return redirect()->route('consommations.index')->with(compact('message'));
     }
 }

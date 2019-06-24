@@ -43,7 +43,8 @@ class CompteurController extends Controller
      */
     public function store(Request $request)
     {
-        //
+    return view('compteurs.index');
+    
     }
 
     /**
@@ -83,11 +84,13 @@ class CompteurController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Compteur  $compteur
+     * @param  \App\Compteur $compteur
      * @return \Illuminate\Http\Response
      */
     public function destroy(Compteur $compteur)
     {
-        //
+        $compteur->delete();
+        $message= $compteur->user->firstname.''.$compteur->user->name.'réussie';
+        return redirect()->route('compteurs.index')->with(compact('message'));
     }
 }

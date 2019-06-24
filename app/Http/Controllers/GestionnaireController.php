@@ -103,6 +103,8 @@ class GestionnaireController extends Controller
      */
     public function destroy(Gestionnaire $gestionnaire)
     {
-        //
+        $gestionnaire->delete();
+        $message= $gestionnaire->user->firstname.''.$gestionnaire->user->name.'réussie';
+        return redirect()->route('gestionnaires.index')->with(compact('message'));
     }
 }

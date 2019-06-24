@@ -7,7 +7,7 @@
                 <h3 class="card-title">Enregistrement</h3>
                 <p class="card-category">Clients
                     {{-- <a target="_blank" href="#">Robert McIntosh</a>. Please checkout the --}}
-                    {{-- <a href="#" target="_blank">full documentation.</a> --}}
+                    {{-- <a href="#" target="_blank">full documentation.</a> --}} -->
                 </p>
             </div>
             <div class="card-body">
@@ -21,9 +21,8 @@
                 
                 <form method="POST" action="{{route('clients.store')}}">
                     {{ csrf_field() }}
-                    
                     <input type="hidden" name="village" value="{{$village->id??''}}" class="form-control" name="inputName" id="inputName" placeholder="">
-                    
+
                     <div class="form-group">
                         <label for="input-nom">Nom</label>
                         <input type="text" name="nom" class="form-control" id="input-nom" aria-describedby="emailHelp" placeholder="Nom du client">

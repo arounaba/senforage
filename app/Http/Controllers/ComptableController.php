@@ -85,6 +85,8 @@ class ComptableController extends Controller
      */
     public function destroy(Comptable $comptable)
     {
-        //
+        $comptable->delete();
+        $message= $comptable->user->firstname.''.$comptable->user->name.'réussie';
+        return redirect()->route('comptables.index')->with(compact('message'));
     }
 }

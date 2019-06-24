@@ -84,6 +84,8 @@ class VillageController extends Controller
      */
     public function destroy(Village $village)
     {
-        //
+        $village->delete();
+        $message= $village->user->firstname.''.$village->user->name.'réussie';
+        return redirect()->route('villages.index')->with(compact('message'));
     }
 }

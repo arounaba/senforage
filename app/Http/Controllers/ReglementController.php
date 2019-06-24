@@ -104,6 +104,8 @@ class ReglementController extends Controller
      */
     public function destroy(Reglement $reglement)
     {
-        //
+        $reglement->delete();
+        $message= $reglement->user->firstname.''.$reglement->user->name.'réussie';
+        return redirect()->route('reglements.index')->with(compact('message'));
     }
 }
