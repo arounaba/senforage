@@ -113,8 +113,8 @@
             columns: [
                     { data: 'id', name: 'id' },
                     { data: 'created_at', name: 'created_at' },
-                    { data: 'client.user.name', name: 'client.user.name' },
                     { data: 'client.user.firstname', name: 'client.user.firstname' },
+                    { data: 'client.user.name', name: 'client.user.name' },
                     { data: 'abonnement.numero_serie', name: 'abonnement.numero_serie' },
                     { data: null ,orderable: false, searchable: false}
                 ],

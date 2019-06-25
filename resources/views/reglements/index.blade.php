@@ -1,6 +1,5 @@
 @extends('layout.default')
 @section('content')
-  
 <div class="content">
         <div class="container-fluid">
           <div class="row">
@@ -100,9 +99,9 @@
                     { data:  'id', name: 'id' },
                     { data: 'date', name: 'date' },
                     { data: 'montant', name: 'montant' },
-                    { data: 'user.types', name: 'user.types' },
-                    { data: 'factures.user.id', name: 'factures.user.id' },
-                    { data: 'user.comptables', name: 'user.comptables' },
+                    { data: 'type.name', name: 'type.name' },
+                    { data: 'facture.id', name: 'facture.id' },
+                    { data: 'comptable.matricule', name: 'comptable.matricule' },
                     { data: null ,orderable: false, searchable: false}
 
                 ],

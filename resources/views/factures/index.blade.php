@@ -1,6 +1,5 @@
 @extends('layout.default')
-@section('content')
-  
+@section('content') 
 <div class="content">
         <div class="container-fluid">
           <div class="row">
@@ -25,10 +24,10 @@
                           ID
                         </th>
                         <th>
-                          Date limite consommation
+                          Date  Limite
                         </th>
                         <th>
-                            Valeur consommation
+                        Valeur Total Consomme
                         </th>
                         <th>
                           Montant
@@ -38,6 +37,9 @@
                           </th>
                           <th>
                           Fin Conommation
+                          </th>
+                          <th>
+                          Action
                         </th>
                         <th>
                       </thead>
@@ -76,7 +78,7 @@
         </button>
       </div>
       <div class="modal-body">
-        ...
+      cliquez sur fermer pour annuler
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
@@ -96,11 +98,11 @@
             "ajax": "{{route('factures.list')}}",
             columns: [
                     { data:  'id', name: 'id' },
-                    { data: 'user. Date limite consommation', name: 'user. Date limite consommation' },
-                    { data: 'user.Valeur consommatio', name: 'user.Valeur consommatio' },
-                    { data: 'user.Montant', name: 'user.Montant' },
-                    { data: 'user.Debut Consommation', name: 'user.Debut Consommation' },
-                    { data: 'user.Fin Consommation', name: 'user.Fin Consommation' },
+                    { data: 'date_limite', name: 'date_limite' },
+                    { data: 'valeur_total_consommé', name: 'valeur_total_consommé' },
+                    { data: 'montant', name: 'montant' },
+                    { data: 'debut_consommation', name: 'debut_consommation' },
+                    { data: 'fin_consommation', name: 'fin_consommation' },
                     { data: null ,orderable: false, searchable: false}
                 ],
                 "columnDefs": [
@@ -112,7 +114,7 @@
                         return '<a href='+url_e+'  class=" btn btn-primary " ><i class="material-icons">edit</i></a>'+
                         '<div class="btn btn-danger delete btn_delete_facture" data-href='+url_d+'><i class="material-icons">delete</i></div>';
                         },
-                        "targets": 7
+                        "targets": 6
                         },
 
                     // {

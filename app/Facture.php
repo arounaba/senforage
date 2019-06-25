@@ -6,7 +6,7 @@
  */
 
 namespace App;
-
+use App\Facture;
 use Illuminate\Database\Eloquent\Model as Eloquent;
 
 /**
@@ -34,6 +34,10 @@ class Facture extends Eloquent
 
 	protected $casts = [
 		'montant' => 'float'
+	];
+
+	protected $appends = [
+		'user'
 	];
 
 	protected $dates = [
@@ -65,4 +69,9 @@ class Facture extends Eloquent
 	{
 		return $this->belongsTo(\App\Client::class, 'factures_id');
 	}
+	public function getUserAttribute()
+	{
+		return $this->consommations->first()->compteur->abonnement->client->user;
+	}
+      
 }

@@ -107,7 +107,7 @@
                         return '<a href='+url_e+'  class=" btn btn-primary " ><i class="material-icons">edit</i></a>'+
                         '<div class="btn btn-danger delete btn_delete_compteur" data-href='+url_d+'><i class="material-icons">delete</i></div>';
                         },
-                        "targets": 5 
+                        "targets": 4
                         },
                     // {
                     //     "data": null,

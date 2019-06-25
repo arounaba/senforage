@@ -8,7 +8,7 @@ class FactureController extends Controller
 {
     public function list(Request $request)
     {
-        $factures=Facture::get()->load('user');
+        $factures=Facture::get();
         return Datatables::of($factures)->make(true);
     }
     /**

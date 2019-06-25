@@ -4,12 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Reglement;
 use Illuminate\Http\Request;
-
+use Yajra\Datatables\Datatables;
 class ReglementController extends Controller
 {
         public function list(Request $request)
         {
-            $reglements=Reglement::get()->load('user');
+            $reglements=Reglement::get()->load('type','comptable','facture');
             return Datatables::of($reglements)->make(true);
         }
         /**
