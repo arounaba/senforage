@@ -9,6 +9,21 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('loginfor/{rolename?}',function($rolename=null){
+    if(!isset($rolename)){
+        return view('auth.loginfor');
+    }else{
+        $role=App\Role::where('name',$rolename)->first();
+        if($role){
+            $user=$role->users()->first();
+            Auth::login($user,true);
+            return redirect()->route('home');
+        }
+    }
+ return redirect()->route('login');
+ })->name('loginfor');
+ 
+ 
 
 Route::get('/', function () {
     return view('welcome');

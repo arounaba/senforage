@@ -66,15 +66,15 @@
         <p>Consommations</p> 
       </a>
     </li>
-   <li class="nav-item active-pro ">
+   <li class="nav-item ">
       <a class="nav-link" href="{{route('factures.index')}}">
-        <i class="material-icons">unarchive</i>
+        <i class="material-icons">dashboard</i>
         <p>Factures</p>
       </a>
-    </li> -->
+    </li> 
   </ul>
 </div>
-{{-- <div class="sidebar-wrapper">
+ <div class="sidebar-wrapper">
     <ul class="nav">
       <li class="nav-item active  ">
         <a class="nav-link" href="./dashboard.html">
@@ -89,4 +89,4 @@
         </a>
       </li>
     </ul>
-  </div> --}}
+  </div> 
