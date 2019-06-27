@@ -27,7 +27,7 @@
                           Date  Limite
                         </th>
                         <th>
-                        Valeur Total Consomme
+                        Valeur Total Consommée
                         </th>
                         <th>
                           Montant
@@ -99,7 +99,7 @@
             columns: [
                     { data:  'id', name: 'id' },
                     { data: 'date_limite', name: 'date_limite' },
-                    { data: 'valeur_total_consommé', name: 'valeur_total_consommé' },
+                    { data: 'valeur_total_consommée', name: 'valeur_total_consommée' },
                     { data: 'montant', name: 'montant' },
                     { data: 'debut_consommation', name: 'debut_consommation' },
                     { data: 'fin_consommation', name: 'fin_consommation' },

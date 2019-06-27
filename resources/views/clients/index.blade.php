@@ -120,7 +120,19 @@
                     //     "targets": 1
                     // }
                 ],
-              
+                // commande qui permet de voir la copy ou csv ou pdf
+                dom: 'lBfrtip',
+           buttons: [
+           'copy', 'csv', 'excel', {
+               extend: 'pdfHtml5',
+               exportOptions: {
+                   columns: [ 0, 1, 2, 5]
+                  }
+           },, 'print','columnsToggle'
+           ],
+          //  commande qui permet de rendre actif les flechecad veut voir que 10 ou 25
+           "lengthMenu": [ [10, 25, 50,1000, -1], [10, 25, 50, 1000, "All"] ]
+           
           });
           $("#table-clients").off('click','.btn_delete_client').on('click', '.btn_delete_client', 
           function(){

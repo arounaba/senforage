@@ -65,19 +65,19 @@ class Compteur extends Eloquent
         $nouvelles_conso=$this->getNewConsommationsAttribute();
         if($nouvelles_conso->count()>0){
             //creer facture
-            $fature=new \App\Facture;
+            $facture=new \App\Facture;
             $facture->details="generee auto..";
-            $facture->save();
             
             //calcul des montants
             $valeur=0;
             foreach($nouvelles_conso as $conso){
                 $valeur+=$conso->valeur;
 			}
-            $facture->valeur_totaleconsommee=$valeur;
-            $valeur->montant=$valeur*3;
+            $facture->valeur_total_consommée=$valeur;
+            $facture->montant=$valeur*3;
+            $facture->save();
 
-            $facture->consommations()>saveMany($nouvelles_conso);
+            $facture->consommations()->saveMany($nouvelles_conso);
             return $facture;
 
 		}
