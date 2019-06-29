@@ -13,7 +13,7 @@
                 <div class="card-header card-header-primary">
                   <h4 class="card-title ">SENFORAGE</h4>
                   <p class="card-category"> Reglements
-                      <a href="{{route('reglements.create')}}"><div class="btn btn-warning">Nouveau Reglement <i class="material-icons">add</i></div></a> 
+                      <!-- <a href=""><div class="btn btn-warning">Nouveau Reglement <i class="material-icons">add</i></div></a>  -->
                   </p>
                 </div>
                 <div class="card-body">
@@ -125,8 +125,7 @@
                     //     },
                     //     "targets": 1
                     // }
-                ],
-              
+                ], 
           });
           $("#table-reglements").off('click', '.btn_delete_reglement').on('click', '.btn_delete_reglement', 
            function(){

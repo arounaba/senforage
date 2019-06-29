@@ -88,7 +88,6 @@
   </div>
 </div>
       @endsection
-
       @push('scripts')
       <script type="text/javascript">
       $(document).ready(function () {
@@ -109,10 +108,10 @@
                         {
                         "data": null,
                         "render": function (data, type, row) {
-                        url_e =  "{!! route('factures.edit',':id')!!}".replace(':id', data.id);
-                        url_d =  "{!! route('factures.destroy',':id')!!}".replace(':id', data.id);
-                        return '<a href='+url_e+'  class=" btn btn-primary " ><i class="material-icons">edit</i></a>'+
-                        '<div class="btn btn-danger delete btn_delete_facture" data-href='+url_d+'><i class="material-icons">delete</i></div>';
+                        url_e =  "{!! route('factures.show',':id')!!}".replace(':id', data.id);
+                        url_d =  "{!! route('reglements.create',':id')!!}".replace(':id', data.id);
+                        return '<a href='+url_e+'  class=" btn btn-primary " title="Afficher Facture" >Afficher<i class="material-icons"></i></a>'+
+                        '<a class="btn btn-success delete" href='+url_d+'>Effectuer<i class="material-icons"></i></a>';
                         },
                         "targets": 6
                         },
@@ -127,6 +126,18 @@
                     // }
                 ],
               
+              // commande qui permet de voir la copy ou csv ou pdf
+              dom: 'lBfrtip',
+           buttons: [
+           'copy', 'csv', 'excel', {
+               extend: 'pdfHtml5',
+               exportOptions: {
+                   columns: [ 0, 1, 2, 5]
+                  }
+           },, 'print','columnsToggle'
+           ],
+          //  commande qui permet de rendre actif les flechecad veut voir que 10 ou 25
+           "lengthMenu": [ [10, 25, 50,1000, -1], [10, 25, 50, 1000, "All"] ]
           });
 
           $("#table-factures").off('click', '.btn_delete_facture').on('click', '.btn_delete_facture', 

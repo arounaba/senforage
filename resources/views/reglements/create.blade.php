@@ -2,125 +2,114 @@
 @section('content')
 <div class="content">
     <div class="container-fluid">
-        <div class="card">
-            <div class="card-header card-header-primary">
-                <h3 class="card-title">Enregistrement</h3>
-                <p class="card-category">Reglements
-                    {{-- <a target="_blank" href="#">Robert McIntosh</a>. Please checkout the --}}
-                    {{-- <a href="#" target="_blank">full documentation.</a> --}}
-                </p>
-            </div>
-            <div class="card-body">
-                <div class="row pt-5 pl-5">
-                    <!-- <h4>
-                        Village: {{$village->nom ?? 'Aucun village choisi'}}<br/>
-                        Commune: {{$village->commune->nom ?? ''}}
-                    </h4> -->
+    <div class="content">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-8">
+              <div class="card">
+                <div class="card-header card-header-primary">
+                  <h4 class="card-title">Edit Profile</h4>
+                  <p class="card-category">Complete your profile</p>
                 </div>
-                <div class="row pt-5"></div>
-                
-                <form method="POST" action="{{route('reglements.store')}}">
-                    {{ csrf_field() }}
-                    
-                    <input type="hidden" name="village" value="{{$village->id??''}}" class="form-control" name="inputName" id="inputName" placeholder="">
-                    
-                    <div class="form-group">
-                        <label for="input-nom">Nom</label>
-                        <input type="text" name="nom" class="form-control" id="input-nom" aria-describedby="emailHelp" placeholder="Nom du client">
-                        <small id="input-nom-help" class="form-text text-muted">
-                            @if ($errors->has('nom'))
-                            <div class="alert alert-danger">
-                                <ul>
-                                    @foreach ($errors->get('nom') as $message)
-                                    <li>{{ $message }}</li>
-                                    @endforeach
-                                </ul>
-                            </div>
-                            @endif
-                        </small>
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleInputEmail1">Email address</label>
-                        <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-                        <small id="emailHelp" class="form-text text-muted">
-                            @if ($errors->has('email'))
-                            @foreach ($errors->get('email') as $message)
-                            <p class="text-danger">{{ $message }}</p>
-                            @endforeach
-                            @endif
-                        </small>
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleInputPassword1">Password</label>
-                        <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-                        @if ($errors->has('password'))
-                        @foreach ($errors->get('password') as $message)
-                        <p class="text-danger">{{ $message }}</p>
-                        @endforeach
-                        @endif
-                    </div>
-                    <div class="form-check">
-                        <label class="form-check-label">
-                            <input class="form-check-input" type="checkbox" value="">
-                            Option one is this
-                            <span class="form-check-sign">
-                                <span class="check"></span>
-                            </span>
-                        </label>
-                    </div>
-                    
-                    <button type="submit" class="btn btn-primary">Enregistrer</button>
-                </form>
-                {{-- <div class="row justify-content-center">
-                    @if ($errors->any())
-                    <div class="alert alert-danger">
-                        <ul>
-                            @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                    </div>
-                    @endif
-                </div> --}}
-                <div class="modal fade" id="error-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Verifier les donn&eacute;es saisies svp</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                @if ($errors->any())
-                                <div class="alert alert-danger">
-                                    <ul>
-                                        @foreach ($errors->all() as $error)
-                                        <li>{{ $error }}</li>
-                                        @endforeach
-                                    </ul>
-                                </div>
-                                @push('scripts')
-                                <script type="text/javascript">
-                                $(document).ready(function () {
-                                    $("#error-modal").modal({
-                                        'show':true,
-                                    })
-                                });
-                                </script>
-                                    
-                                @endpush
-                                @endif
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
-                            </div>
+                <div class="card-body">
+                  <form>
+                    <div class="row">
+                      <div class="col-md-5">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Company (disabled)</label>
+                          <input type="text" class="form-control" disabled>
                         </div>
+                      </div>
+                      <div class="col-md-3">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Username</label>
+                          <input type="text" class="form-control">
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Email address</label>
+                          <input type="email" class="form-control">
+                        </div>
+                      </div>
                     </div>
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Fist Name</label>
+                          <input type="text" class="form-control">
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Last Name</label>
+                          <input type="text" class="form-control">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Adress</label>
+                          <input type="text" class="form-control">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">City</label>
+                          <input type="text" class="form-control">
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Country</label>
+                          <input type="text" class="form-control">
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Postal Code</label>
+                          <input type="text" class="form-control">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <label>About Me</label>
+                          <div class="form-group">
+                            <label class="bmd-label-floating"> Lamborghini Mercy, Your chick she so thirsty, I'm in that two seat Lambo.</label>
+                            <textarea class="form-control" rows="5"></textarea>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary pull-right">Update Profile</button>
+                    <div class="clearfix"></div>
+                  </form>
                 </div>
-                
+              </div>
             </div>
+            <div class="col-md-4">
+              <div class="card card-profile">
+                <div class="card-avatar">
+                  <a href="#pablo">
+                    <img class="img" src="../assets/img/faces/marc.jpg" />
+                  </a>
+                </div>
+                <div class="card-body">
+                  <h6 class="card-category text-gray">CEO / Co-Founder</h6>
+                  <h4 class="card-title">Alec Thompson</h4>
+                  <p class="card-description">
+                    Don't be scared of the truth because we need to restart the human foundation in truth And I love you like Kanye loves Kanye I love Rick Owens’ bed design but the back is...
+                  </p>
+                  <a href="#pablo" class="btn btn-primary btn-round">Follow</a>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-    </div>
-</div>
+      </div>
 @endsection

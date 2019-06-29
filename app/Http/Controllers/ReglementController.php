@@ -1,71 +1,55 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Facture;
 use App\Reglement;
+use App\Compteur;
 use Illuminate\Http\Request;
 use Yajra\Datatables\Datatables;
 class ReglementController extends Controller
 {
-        public function list(Request $request)
-        {
-            $reglements=Reglement::get()->load('type','comptable','facture');
-            return Datatables::of($reglements)->make(true);
-        }
-        /**
-         * Display a listing of the resource.
-         *
-         * @return \Illuminate\Http\Response
-         */
-        public function index()
-        {
-            //
-            return view('reglements.index');
-        }
-    
-        /**
-         * Show the form for creating a new resource.
-         *
-         * @return \Illuminate\Http\Response
-         */
-        public function create(Request $request)
-        {
-            //
-            // $this->validate(
-            //     $request, [
-            //         'village' => 'required|exists:villages,id',
-            //     ]);
-            /* $village_id=$request->input('village');
-            $village=\App\Village::find($village_id);
-            return view('gestionnaires.create',compact('gestionnaire')); */
-        }
-    
-        /**
-         * Store a newly created resource in storage.
-         *
-         * @param  \Illuminate\Http\Request  $request
-         * @return \Illuminate\Http\Response
-         */
-        public function store(Request $request)
-        {
-            //
-            $this->validate(
-                $request, [
-                    'nom' => 'required|string|max:50',
-                    'prenom' => 'required|string|max:50',
-                    'email' => 'required|email|max:255|unique:users,email',
-                    'password' => 'required|string|max:50',
-                    'village' => 'required|exists:villages,id',
-                ]
-            );
-            return view('reglements.index');
-            
-        }
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        //
+        return view('reglements.index');
+    }
+    public function list(){
+   
+       $reglements=Reglement::get()->load('type','comptable','facture');
+       return DataTables::of($reglements)->make(true);
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create( Facture $facture )
+    {
+        /* return $facture; */
+        return view('reglements.create');
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        //
+    }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Reglement $reglement
+     * @param  \App\Reglement  $reglement
      * @return \Illuminate\Http\Response
      */
     public function show(Reglement $reglement)
@@ -76,7 +60,7 @@ class ReglementController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Reglement $reglement
+     * @param  \App\Reglement  $reglement
      * @return \Illuminate\Http\Response
      */
     public function edit(Reglement $reglement)
@@ -88,7 +72,7 @@ class ReglementController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Reglement $reglement
+     * @param  \App\Reglement  $reglement
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Reglement $reglement)
@@ -104,8 +88,6 @@ class ReglementController extends Controller
      */
     public function destroy(Reglement $reglement)
     {
-        $reglement->delete();
-        $message= $reglement->user->firstname.''.$reglement->user->name.'réussie';
-        return redirect()->route('reglements.index')->with(compact('message'));
+        //
     }
 }

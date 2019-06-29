@@ -20,6 +20,6 @@ class DatabaseSeeder extends Seeder
         $this->call(TypesTableSeeder::class);
         $this->call(ClientsTableSeeder::class);
         $this->call(ConsommationsTableSeeder::class);
-
+         \Artisan::call('generate:factures');
     }
 }

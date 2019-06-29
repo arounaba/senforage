@@ -5,25 +5,24 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
-    
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,900" rel="stylesheet">
     <link rel="stylesheet" href="fonts/icomoon/style.css">
 
-    <link rel="stylesheet" type="test/css" href="{{asset('assets/css/bootstrap.min.css')}}">
-    <link rel="stylesheet" type="test/css" href="{{asset('assets/css/jquery-ui.css')}}">
-    <link rel="stylesheet" type="test/css" href="{{asset('assets/css/owl.carousel.min.css')}}">
-    <link rel="stylesheet" type="test/css" href="{{asset('assets/css/owl.theme.default.min.css')}}">
-    <link rel="stylesheet" type="test/css" href="{{asset('assets/css/owl.theme.default.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('assets/css/bootstrap.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('assets/css/jquery-ui.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('assets/css/owl.carousel.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('assets/css/owl.theme.default.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('assets/css/owl.theme.default.min.css')}}">
 
-    <link rel="stylesheet" type="test/css" href="{{asset('assets/css/jquery.fancybox.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('assets/css/jquery.fancybox.min.css')}}">
 
-    <link rel="stylesheet" type="test/css" href="{{asset('assets/css/bootstrap-datepicker.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('assets/css/bootstrap-datepicker.css')}}">
 
-    <link rel="stylesheet" type="test/css" href="{{asset('assets/fonts/flaticon/font/flaticon.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('assets/fonts/flaticon/font/flaticon.css')}}">
 
-    <link rel="stylesheet" type="test/css" href="{{asset('assets/css/aos.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('assets/css/aos.css')}}">
 
-    <link rel="stylesheet" type="test/css" href="{{asset('assets/css/style.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('assets/css/style.css')}}">
     
   </head>
   <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
@@ -95,7 +94,7 @@
     <div class="site-section cta-big-image" id="about-section">
       <div class="container">
         
-        <img src="images/img_big_1.jpg" alt="Image" class="img-fluid">
+        <img src="{{asset('assets/images/img_big_1.jpg')}}" alt="Image" class="img-fluid">
         <div class="img-box">
           <span class="sub-title">Creative Skills</span>
           <h2>Create Your Own Web Masterpiece</h2>
@@ -126,7 +125,7 @@
                   <li><a href="#"><span class="icon-linkedin"></span></a></li>
                   <li><a href="#"><span class="icon-instagram"></span></a></li>
                 </ul>
-                <img src="images/person_5.jpg" alt="Image" class="img-fluid">
+                <img src="{{asset('assets/images/person_5.jpg')}}" alt="Image" class="img-fluid">
               </figure>
               <div class="p-3">
                 <h3>Kaiara Spencer</h3>
@@ -144,7 +143,7 @@
                   <li><a href="#"><span class="icon-linkedin"></span></a></li>
                   <li><a href="#"><span class="icon-instagram"></span></a></li>
                 </ul>
-                <img src="images/person_6.jpg" alt="Image" class="img-fluid">
+                <img src="{{asset('assets/images/person_6.')}}" alt="Image" class="img-fluid">
               </figure>
               <div class="p-3">
                 <h3>Dave Simpson</h3>
@@ -162,7 +161,7 @@
                   <li><a href="#"><span class="icon-linkedin"></span></a></li>
                   <li><a href="#"><span class="icon-instagram"></span></a></li>
                 </ul>
-                <img src="images/person_7.jpg" alt="Image" class="img-fluid">
+                <img src="{{asset('assets/images/person_7.jpg')}}" alt="Image" class="img-fluid">
               </figure>
               <div class="p-3">
                 <h3>Ben Thompson</h3>
@@ -180,7 +179,7 @@
                   <li><a href="#"><span class="icon-linkedin"></span></a></li>
                   <li><a href="#"><span class="icon-instagram"></span></a></li>
                 </ul>
-                <img src="images/person_8.jpg" alt="Image" class="img-fluid">
+                <img src="{{asset('assets/images/person_8.jpg')}}" alt="Image" class="img-fluid">
               </figure>
               <div class="p-3">
                 <h3>Kyla Stewart</h3>
@@ -198,7 +197,7 @@
                   <li><a href="#"><span class="icon-linkedin"></span></a></li>
                   <li><a href="#"><span class="icon-instagram"></span></a></li>
                 </ul>
-                <img src="images/person_1.jpg" alt="Image" class="img-fluid">
+                <img src="{{asset('assets/images/person_1.jpg')}}" alt="Image" class="img-fluid">
               </figure>
               <div class="p-3">
                 <h3>Kaiara Spencer</h3>
@@ -216,7 +215,7 @@
                   <li><a href="#"><span class="icon-linkedin"></span></a></li>
                   <li><a href="#"><span class="icon-instagram"></span></a></li>
                 </ul>
-                <img src="images/person_2.jpg" alt="Image" class="img-fluid">
+                <img src="{{asset('assets/images/person_2.jpg')}}" alt="Image" class="img-fluid">
               </figure>
               <div class="p-3">
                 <h3>Dave Simpson</h3>
@@ -234,7 +233,7 @@
                   <li><a href="#"><span class="icon-linkedin"></span></a></li>
                   <li><a href="#"><span class="icon-instagram"></span></a></li>
                 </ul>
-                <img src="images/person_3.jpg" alt="Image" class="img-fluid">
+                <img src="{{asset('assets/images/person_3.jpg')}}" alt="Image" class="img-fluid">
               </figure>
               <div class="p-3">
                 <h3>Ben Thompson</h3>
@@ -252,7 +251,7 @@
                   <li><a href="#"><span class="icon-linkedin"></span></a></li>
                   <li><a href="#"><span class="icon-instagram"></span></a></li>
                 </ul>
-                <img src="images/person_4.jpg" alt="Image" class="img-fluid">
+                <img src="{{asset('assets/images/person_4.jpg')}}" alt="Image" class="img-fluid">
               </figure>
               <div class="p-3">
                 <h3>Chris Stewart</h3>
@@ -273,12 +272,12 @@
         
         <div class="row">
           <div class="col-lg-6">
-
+          
             <div class="owl-carousel slide-one-item-alt">
-              <img src="images/slide_1.jpg" alt="Image" class="img-fluid">
-              <img src="images/slide_2.jpg" alt="Image" class="img-fluid">
-              <img src="images/slide_3.jpg" alt="Image" class="img-fluid">
-              <img src="images/slide_4.jpg" alt="Image" class="img-fluid">
+              <img src="{{asset('assets/images/slide_1.jpg')}}" alt="Image" class="img-fluid">
+              <img src="{{asset('assets/images/slide_2.jpg')}}" alt="Image" class="img-fluid">
+              <img src="{{asset('assets/images/slide_3.jpg')}}" alt="Image" class="img-fluid">
+              <img src="{{asset('assets/images/slide_4.jpg')}}" alt="Image" class="img-fluid">
             </div>
             <div class="custom-direction">
               <a href="#" class="custom-prev">Prev</a><a href="#" class="custom-next">Next</a>
@@ -429,7 +428,7 @@
               </blockquote>
 
               <figure class="mb-4 d-flex align-items-center justify-content-center">
-                <div><img src="images/person_3.jpg" alt="Image" class="w-50 img-fluid mb-3"></div>
+                <div><img src="{{asset('assets/images/person_3.jpg')}}" alt="Image" class="w-50 img-fluid mb-3"></div>
                 <p>John Smith</p>
               </figure>
             </div>
@@ -441,7 +440,7 @@
                 <p>&ldquo;Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur unde reprehenderit aperiam quaerat fugiat repudiandae explicabo animi minima fuga beatae illum eligendi incidunt consequatur. Amet dolores excepturi earum unde iusto.&rdquo;</p>
               </blockquote>
               <figure class="mb-4 d-flex align-items-center justify-content-center">
-                <div><img src="images/person_2.jpg" alt="Image" class="w-50 img-fluid mb-3"></div>
+                <div><img src="{{asset('assets/images/person_2.jpg')}}" alt="Image" class="w-50 img-fluid mb-3"></div>
                 <p>Christine Aguilar</p>
               </figure>
               
@@ -455,7 +454,7 @@
                 <p>&ldquo;Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur unde reprehenderit aperiam quaerat fugiat repudiandae explicabo animi minima fuga beatae illum eligendi incidunt consequatur. Amet dolores excepturi earum unde iusto.&rdquo;</p>
               </blockquote>
               <figure class="mb-4 d-flex align-items-center justify-content-center">
-                <div><img src="images/person_4.jpg" alt="Image" class="w-50 img-fluid mb-3"></div>
+                <div><img src="{{asset('assets/images/person_4.jpg')}}" alt="Image" class="w-50 img-fluid mb-3"></div>
                 <p>Robert Spears</p>
               </figure>
 
@@ -470,7 +469,7 @@
                 <p>&ldquo;Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur unde reprehenderit aperiam quaerat fugiat repudiandae explicabo animi minima fuga beatae illum eligendi incidunt consequatur. Amet dolores excepturi earum unde iusto.&rdquo;</p>
               </blockquote>
               <figure class="mb-4 d-flex align-items-center justify-content-center">
-                <div><img src="images/person_4.jpg" alt="Image" class="w-50 img-fluid mb-3"></div>
+                <div><img src="{{asset('assets/images/person_4.jpg')}}" alt="Image" class="w-50 img-fluid mb-3"></div>
                 <p>Bruce Rogers</p>
               </figure>
 
@@ -488,10 +487,10 @@
             
 
             <div class="owl-carousel slide-one-item-alt">
-              <img src="images/slide_1.jpg" alt="Image" class="img-fluid">
-              <img src="images/slide_2.jpg" alt="Image" class="img-fluid">
-              <img src="images/slide_3.jpg" alt="Image" class="img-fluid">
-              <img src="images/slide_4.jpg" alt="Image" class="img-fluid">
+              <img src="{{asset('assets/images/slide_1.jpg')}}" alt="Image" class="img-fluid">
+              <img src="{{asset('assets/images/slide_2.jpg')}}" alt="Image" class="img-fluid">
+              <img src="{{asset('assets/images/slide_3.jpg')}}" alt="Image" class="img-fluid">
+              <img src="{{asset('assets/images/slide_4.jpg')}}" alt="Image" class="img-fluid">
             </div>
             <div class="custom-direction">
               <a href="#" class="custom-prev">Prev</a><a href="#" class="custom-next">Next</a>

@@ -127,7 +127,16 @@
                     //     "targets": 1
                     // }
                 ],
-              
+              // commande qui permet de voir la copy ou csv ou pdf
+              dom: 'lBfrtip',
+           buttons: [
+           'copy', 'csv', 'excel', {
+               extend: 'pdfHtml5',
+               exportOptions: {
+                   columns: [ 0, 1, 2, 5]
+                  }
+           },, 'print','columnsToggle'
+           ],
           });
 
           $("#table-consommations").off('click', '.btn_delete_consommation').on('click', '.btn_delete_consommation', 

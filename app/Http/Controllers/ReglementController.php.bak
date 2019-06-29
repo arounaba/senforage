@@ -1,0 +1,12 @@
+<?php
+
+namespace App\Http\Controllers;
+use App\Facture;
+use Illuminate\Http\Request;
+use Yajra\Datatables\Datatables;
+class ReglementController extends Controller
+
+public function create(Facture $facture)
+{
+    return $facture;
+}

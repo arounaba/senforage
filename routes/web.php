@@ -26,7 +26,7 @@ Route::get('loginfor/{rolename?}',function($rolename=null){
  
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('accueil.index');
 });
 
 Route::get('/test', function () {
@@ -53,7 +53,8 @@ Route::get('/clients/selectvillage', function () {
  Route::get('/agents/list', 'AgentController@list')->name('agents.list');
  Route::resource('agents', 'AgentController');
  Route::get('/reglements/list', 'ReglementController@list')->name('reglements.list');
- Route::resource('reglements', 'ReglementController');
+ Route::get('/reglements/create/{facture}', 'ReglementController@create')->name('reglements.create');
+ Route::resource('reglements', 'ReglementController')->except('create');
  Route::get('/comptables/list', 'ComptableController@list')->name('comptables.list');
  Route::resource('comptables', 'ComptableController');
  Route::get('/factures/list', 'FactureController@list')->name('factures.list');
